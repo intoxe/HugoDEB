@@ -7,13 +7,19 @@
 				<h5 class="grey-text text-darken-2">{{ .Site.Params.Footer }}</h5>
 				<p class="grey-text text-darken-1">{{ .Site.Params.Subfooter }}</p>
 			</div>
+        	{{ if or (.Site.Params.LinkedinID) (.Site.Params.TwitterID) }}
 			<div class="col l4 offset-l2 s12">
 				<h5 class="grey-text text-darken-2">Contacts</h5>
 				<ul>
-					<li><a class="grey-text text-darken-1" href="#!">Linkedin</a></li>
-					<li><a class="grey-text text-darken-1" href="#!">Twitter</a></li>
+        			{{ if .Site.Params.LinkedinID }}
+					<li><a class="grey-text text-darken-1" href="https://www.linkedin.com/in/{{ .Site.Params.LinkedinID }}">Linkedin</a></li>
+					{{ end }}
+        			{{ if .Site.Params.TwitterID }}
+					<li><a class="grey-text text-darken-1" href="https://twitter.com/{{ .Site.Params.TwitterID }}">Twitter</a></li>
+					{{ end }}
 				</ul>
 			</div>
+			{{ end }}
 		</div>
 	</div>
 	<div class="footer-copyright">
