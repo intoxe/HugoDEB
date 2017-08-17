@@ -1,0 +1,12 @@
+baseurl = "http://replace-this-with-your-hugo-site.com/"
+languageCode = "en-us"
+title = "My Website"
+theme = "HugoDEB"
+
+[params]
+  TwitterID = "xxx"
+  LinkedinID = "xxx"
+  GithubID = "xxx"
+  Description = "This is my description"
+  Footer = "This is a footer"
+  Subfooter = "This is a subfooter."

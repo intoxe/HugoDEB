@@ -1,0 +1,19 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+
+#index .tabs .indicator {
+    background-color:#000;
+} /*Color of underline*/
+
+#index .tabs .tab a:hover {
+    background-color:#eee;
+    color:#000;
+} /*Text color on hover*/

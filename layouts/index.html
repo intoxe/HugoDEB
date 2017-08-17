@@ -1,0 +1,79 @@
+{{ define "main" }}
+<div id="index">
+    <ul id="tabs-swipe-demo" class="tabs">
+        {{ with .Site.Sections }}
+        <li class="tab col s3"><a class="black-text" href="#blog">News</a></li>
+        {{ end }}
+        {{ if .Site.Params.LinkedinID }}
+        <li class="tab col s3"><a class="black-text" href="#twitter">Twitter</a></li>
+        {{ end }}
+        {{ if .Site.Params.LinkedinID }}
+        <li class="tab col s3"><a class="black-text" href="#linkedin">Linkedin</a></li>
+        {{ end }}
+        {{ if .Site.Params.GithubID }}
+        <li class="tab col s3"><a class="black-text" href="#github">Github</a></li>
+        {{ end }}
+    </ul>
+    <div class="divider"></div>
+
+    {{ if .Site.Params.LinkedinID }}
+    <div id="linkedin">
+        <div class="row">
+            <div class="col s12 center">
+                <div class="section">
+                    {{ partial "socialnetworks/linkedin.html" . }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ end }}
+    {{ if .Site.Params.TwitterID }}
+    <div id="twitter">
+        <div class="row">
+            <div class="col s8 offset-s2">
+                <div class="section">
+                    {{ partial "socialnetworks/twitter.html" . }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ end }}
+    {{ with .Site.Sections }}
+    <div id="blog">
+        <div class="row">
+            <div class="col s12">
+                <div class="section">
+                    <ul class="collapsible" data-collapsible="accordion">
+                        {{ range . }}
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">filter_drama</i> {{ .Title }}</div>
+
+                            <div class="collapsible-body">
+                                <ul>
+                                    {{ range .Data.Pages }}
+                                    <li>{{ .Render "summary"}}</li>
+                                    {{ end }}
+                                </ul>
+                            </div>
+                        </li>
+                        {{ end }}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{ end }}
+    {{ if .Site.Params.GithubID }}
+    <div id="github">
+        <div class="row">
+            <div class="col s12 center">
+                <div class="section">
+                    {{ partial "socialnetworks/github.html" . }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ end }}
+</div>
+{{ end }}
